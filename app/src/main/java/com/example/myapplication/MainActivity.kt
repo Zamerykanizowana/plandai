@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //
+        //changing view to home view by clicking button
         val star_button = findViewById(R.id.button) as Button
         star_button.setOnClickListener {
             setContentView(R.layout.home)
