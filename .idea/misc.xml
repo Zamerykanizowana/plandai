@@ -15,7 +15,8 @@
         <entry key="app/src/main/res/drawable/shelf_foreground.xml" value="0.21302083333333333" />
         <entry key="app/src/main/res/font/quicksand.xml" value="0.22708333333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/home.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/add_new_plant.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/home.xml" value="0.25" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/logo.xml" value="0.21302083333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/logo_round.xml" value="0.21302083333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/pilea.xml" value="0.21302083333333333" />
