@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -16,19 +17,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo_foreground"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="42dp" />
-
-    <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="376dp"
-        android:layout_height="451dp"
-        app:srcCompat="@drawable/pilea_foreground"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="249dp" />
+        android:layout_width="130dp"
+        android:layout_height="143dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.871"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137"
+        app:srcCompat="@drawable/pilea_foreground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
