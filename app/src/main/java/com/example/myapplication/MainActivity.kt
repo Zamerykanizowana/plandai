@@ -11,14 +11,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //changing view to home view by clicking button
-        val star_button = findViewById(R.id.button) as Button
-        star_button.setOnClickListener {
+        val startButton = findViewById<Button>(R.id.button)
+        startButton.setOnClickListener {
             setContentView(R.layout.home)
         }
 
-        val add_new_plant_form = findViewById(R.id.textView4) as TextView
-        add_new_plant_form.setOnClickListener {
-            setContentView(R.layout.add_new_plant)
-        }
+
+//        val addNewPlantForm = findViewById<TextView>(R.id.textView4)
+//        addNewPlantForm.setOnClickListener {
+//        setContentView(R.layout.add_new_plant)
+//        }
     }
 }
