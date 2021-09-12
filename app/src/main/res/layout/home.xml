@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bgc_green">
+    android:background="@color/bgc_green"
+    tools:context=".HomeActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -117,7 +118,6 @@
         android:text="My plants"
         android:textSize="20dp"
         android:fontFamily="@font/quicksand"
-        android:onClick="onClick"
         android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -163,7 +163,6 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:fontFamily="@font/quicksand"
-        android:onClick="onClick"
         android:text="Add new plant"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
