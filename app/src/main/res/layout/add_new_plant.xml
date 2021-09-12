@@ -113,9 +113,10 @@
         app:layout_constraintVertical_bias="0.045" />
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/homeBtn"
         android:layout_width="49dp"
         android:layout_height="39dp"
+        android:onClick="goHome"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.947"
