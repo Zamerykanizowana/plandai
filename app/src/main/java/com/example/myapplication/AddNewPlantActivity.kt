@@ -14,6 +14,11 @@ class AddNewPlantActivity : AppCompatActivity() {
         setContentView(R.layout.add_new_plant)
     }
 
+    fun addNewPlant() {
+
+    }
+
+
     fun goHome(view: View) {
         startActivity(Intent(this, HomeActivity::class.java))
     }
