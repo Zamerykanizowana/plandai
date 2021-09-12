@@ -6,16 +6,15 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.util.Log
+import android.view.View
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home)
+    }
 
-        val addNewPlantForm = findViewById<TextView>(R.id.textView4)
-        addNewPlantForm.setOnClickListener {
-            val addNewPlantIntent = Intent(this, AddNewPlantActivity::class.java)
-            startActivity(addNewPlantIntent)
-        }
+    fun addNewPlant(view: View) {
+        startActivity(Intent(this, AddNewPlantActivity::class.java))
     }
 }
