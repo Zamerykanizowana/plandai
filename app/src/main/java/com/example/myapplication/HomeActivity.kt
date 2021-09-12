@@ -9,12 +9,10 @@ import android.util.Log
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i("HA", "Hello from classw!")
         setContentView(R.layout.home)
 
         val addNewPlantForm = findViewById<TextView>(R.id.textView4)
         addNewPlantForm.setOnClickListener {
-            Log.i("HA", "Hello from listener!")
             setContentView(R.layout.add_new_plant)
         }
     }
