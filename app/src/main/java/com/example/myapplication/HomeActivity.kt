@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -13,7 +14,8 @@ class HomeActivity : AppCompatActivity() {
 
         val addNewPlantForm = findViewById<TextView>(R.id.textView4)
         addNewPlantForm.setOnClickListener {
-            setContentView(R.layout.add_new_plant)
+            val addNewPlantIntent = Intent(this, AddNewPlantActivity::class.java)
+            startActivity(addNewPlantIntent)
         }
     }
 }
