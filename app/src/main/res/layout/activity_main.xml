@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.100" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageView16"
         android:layout_width="211dp"
         android:layout_height="314dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,6 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.98"
-        app:srcCompat="@drawable/monstera" />
+        app:srcCompat="@drawable/plant4" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
