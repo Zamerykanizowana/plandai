@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -13,13 +14,9 @@ class MainActivity : AppCompatActivity() {
         //changing view to home view by clicking button
         val startButton = findViewById<Button>(R.id.button)
         startButton.setOnClickListener {
-            setContentView(R.layout.home)
+            //setContentView(R.layout.home)
+            val goHomeIntent = Intent(this, HomeActivity::class.java)
+            startActivity(goHomeIntent)
         }
-
-
-//        val addNewPlantForm = findViewById<TextView>(R.id.textView4)
-//        addNewPlantForm.setOnClickListener {
-//        setContentView(R.layout.add_new_plant)
-//        }
     }
 }
