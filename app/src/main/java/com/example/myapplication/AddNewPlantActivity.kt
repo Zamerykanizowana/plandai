@@ -4,12 +4,9 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import android.util.Log
 import android.view.View
-import android.widget.DatePicker
-import android.widget.EditText
+import android.widget.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -47,6 +44,10 @@ class AddNewPlantActivity : AppCompatActivity() {
             }
 
         })
+//TODO Add spinner hint
+        val mySpinner = findViewById<Spinner>(R.id.spinner1)
+
+
     }
 
 
@@ -54,7 +55,8 @@ class AddNewPlantActivity : AppCompatActivity() {
         val name = findViewById<EditText>(R.id.editTextTextPersonName).text.toString()
         val family = findViewById<EditText>(R.id.editTextTextPersonName2).text.toString()
         val dateOfPurchase = findViewById<EditText>(R.id.editTextDate).text.toString()
-        Log.i("anp", "addnewplant check : $name")
+        val size = findViewById<Spinner>(R.id.spinner1).selectedItem.toString()
+        Log.i("anp", "addnewplant check : $size")
     }
 
 
