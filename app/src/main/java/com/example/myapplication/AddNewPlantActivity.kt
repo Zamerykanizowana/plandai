@@ -11,7 +11,12 @@ import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class AddNewPlantActivity : AppCompatActivity() {
@@ -136,9 +141,15 @@ class AddNewPlantActivity : AppCompatActivity() {
     fun addNewPlant(view: View) {
         val name = findViewById<EditText>(R.id.editTextTextPersonName).text.toString()
         val family = findViewById<EditText>(R.id.editTextTextPersonName2).text.toString()
-        val dateOfPurchase = findViewById<EditText>(R.id.editTextDate).text.toString()
+        val dateOfPurchase = SimpleDateFormat("dd/MM/yyyy").parse(findViewById<EditText>(R.id.editTextDate).text.toString())
         val size = findViewById<Spinner>(R.id.spinner1).selectedItem.toString()
         Log.i("anp", "addnewplant check : $size")
+        val newPlant = Plant(0, name, family, dateOfPurchase, size)
+        val plantDb = PlantRoomDatabase.getDatabase(this)
+
+        GlobalScope.launch(Dispatchers.Main) {
+            plantDb.plantDao().insert(newPlant)
+        }
     }
 
 
