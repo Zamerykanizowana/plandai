@@ -148,7 +148,8 @@ class AddNewPlantActivity : AppCompatActivity() {
         val plantDb = PlantRoomDatabase.getDatabase(this)
 
         GlobalScope.launch(Dispatchers.Main) {
-            plantDb.plantDao().insert(newPlant)
+            val newRow = plantDb.plantDao().insert(newPlant)
+            Log.i("id", "new plant : $newRow")
         }
     }
 

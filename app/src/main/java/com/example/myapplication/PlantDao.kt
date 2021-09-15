@@ -11,7 +11,7 @@ interface PlantDao {
     fun getPlants(): List<Plant>
 
     @Insert
-    suspend fun insert(plant: Plant)
+    suspend fun insert(plant: Plant) : Long
 
     @Query("DELETE FROM plants WHERE id= :plantId")
     suspend fun delete(plantId: Int)
