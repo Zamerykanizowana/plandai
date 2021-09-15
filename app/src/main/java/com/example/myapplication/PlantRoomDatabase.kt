@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.*
 import java.security.AccessControlContext
 
-@Database(entities = arrayOf(Plant::class), version = 2, exportSchema = false)
+@Database(entities = arrayOf(Plant::class), version = 3, exportSchema = false)
 @TypeConverters(DbConverters::class)
 public abstract class PlantRoomDatabase : RoomDatabase() {
     abstract fun plantDao(): PlantDao
