@@ -15,8 +15,9 @@
 <!--        TODO: add default font - Quicksand, I don't know in whitch file-->
     </style>
     <style name="SpinnerTheme">
-<!--        <item name="android:textColor">#333333</item>-->
+        <item name="android:textColor">#990000</item>
         <item name="android:fontFamily">@font/quicksand</item>
+        <item name="android:gravity">center</item>
 <!--        <item name="android:textStyle">bold</item>-->
     </style>
 </resources>
