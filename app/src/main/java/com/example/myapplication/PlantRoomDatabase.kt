@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.*
 import java.security.AccessControlContext
 
-@Database(entities = arrayOf(Plant::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Plant::class), version = 2, exportSchema = false)
 @TypeConverters(DbConverters::class)
 public abstract class PlantRoomDatabase : RoomDatabase() {
     abstract fun plantDao(): PlantDao
@@ -15,7 +15,7 @@ public abstract class PlantRoomDatabase : RoomDatabase() {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext, PlantRoomDatabase::class.java, "plants_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }

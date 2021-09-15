@@ -8,7 +8,7 @@ import java.util.*
 
 @Entity(tableName = "plants")
 data class Plant(
-    @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name= "name") val name: String,
     @ColumnInfo(name= "family") val family: String?,
     @ColumnInfo(name= "date_of_purchase") val dop: Date,
