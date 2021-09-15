@@ -1,11 +1,15 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -14,9 +18,11 @@ class AddNewPlantActivity : AppCompatActivity() {
 
     var cal = Calendar.getInstance()
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_new_plant)
+        val context = this
         val dateField = findViewById<EditText>(R.id.editTextDate)
         dateField.setHint("Set date of purchase or planting --/--/--")
 
@@ -44,8 +50,84 @@ class AddNewPlantActivity : AppCompatActivity() {
             }
 
         })
-//TODO Add spinner hint
         val mySpinner = findViewById<Spinner>(R.id.spinner1)
+
+        // list of plant sizes
+        val spinnerList = mutableListOf(
+            "Baby",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "Monster"
+        )
+
+        // add a hint to spinner
+        // list first item will show as hint
+        spinnerList.add(0,"Select plant size")
+
+        // initialize an array adapter for spinner
+        val adapter:ArrayAdapter<String> = object: ArrayAdapter<String>(
+            context,
+            android.R.layout.simple_spinner_dropdown_item,
+            spinnerList
+        ){
+            override fun getDropDownView(
+                position: Int,
+                convertView: View?,
+                parent: ViewGroup
+            ): View {
+                val view:TextView = super.getDropDownView(
+                    position,
+                    convertView,
+                    parent
+                ) as TextView
+                // set item text bold
+//                view.setTypeface(view.typeface, Typeface.BOLD)
+
+                // set selected item style
+//                if (position == mySpinner.selectedItemPosition && position !=0 ){
+//                    view.background = ColorDrawable(Color.parseColor("#F7E7CE"))
+//                    view.setTextColor(Color.parseColor("#333399"))
+//                }
+
+                // make hint item color gray
+                if(position == 0){
+                    view.setTextColor(Color.parseColor("#203700"))
+                    view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25F)
+                }
+
+
+                return view
+            }
+
+            override fun isEnabled(position: Int): Boolean {
+                // disable first item
+                // first item is display as hint
+                return position != 0
+            }
+        }
+
+
+        // finally, data bind spinner with adapter
+        mySpinner.adapter = adapter
+
+
+        // spinner on item selected listener
+        mySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                // nothing
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // another interface callback
+            }
+        }
 
 
     }

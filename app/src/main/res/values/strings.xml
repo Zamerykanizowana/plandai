@@ -1,12 +1,4 @@
 <resources>
     <string name="app_name">Hello Plandaí</string>
-    <string name="prompt_spinner">Choose plant size</string>
-    <string-array name="plant_sizes">
-        <item>Baby</item>
-        <item>S</item>
-        <item>M</item>
-        <item>L</item>
-        <item>XL</item>
-        <item>Monster</item>
-    </string-array>
+
 </resources>
