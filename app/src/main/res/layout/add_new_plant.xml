@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="87dp"
-        android:layout_height="46dp"
+        android:layout_width="98dp"
+        android:layout_height="53dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.053"
@@ -36,9 +36,8 @@
         android:layout_height="48dp"
         android:clickable="true"
         android:fontFamily="@font/quicksand"
-        android:onClick="onClick"
         android:text="Add new plant"
-        android:textSize="20dp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
