@@ -150,7 +150,12 @@ class AddNewPlantActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main) {
             val newRow = plantDb.plantDao().insert(newPlant)
             Log.i("id", "new plant : $newRow")
+
+            val toast = Toast.makeText(this@AddNewPlantActivity, "Added new plant with ID $newRow", Toast.LENGTH_SHORT)
+            toast.show()
         }
+
+        goHome(view)
     }
 
 
