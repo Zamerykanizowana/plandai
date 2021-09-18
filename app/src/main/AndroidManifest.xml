@@ -24,6 +24,9 @@
         <activity
             android:name=".AddNewPlantActivity">
         </activity>
+        <activity
+            android:name=".PlantCareActivity">
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
