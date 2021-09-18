@@ -148,6 +148,7 @@
         android:clickable="true"
         android:fontFamily="@font/quicksand"
         android:text="Plant care"
+        android:onClick="navigateToPlantCare"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
