@@ -24,6 +24,8 @@ class PlantCareAdapter(private val onClick: (PlantCareNote) -> Unit) :
             }
         }
 
+        /* Use this function to populate the layout with actual values from
+         the object retrieved from the database. */
         fun bind(plantCareNote: PlantCareNote) {
             currentNote = plantCareNote
 
