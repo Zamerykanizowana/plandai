@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface PlantCareNoteDao {
     @Query("SELECT * FROM plant_care_notes ORDER BY id ASC")
-    fun getNotes(): List<PlantCareNote>
+    suspend fun getNotes(): List<PlantCareNote>
 
     @Insert
     suspend fun insert(plantCareNote: PlantCareNote) : Long
