@@ -8,12 +8,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import org.w3c.dom.Text
+import java.text.SimpleDateFormat
 
 class PlantCareAdapter(private val onClick: (PlantCareNote) -> Unit) :
     ListAdapter<PlantCareNote, PlantCareAdapter.PlantCareHolder>(PlantCareDiffCallback) {
     class PlantCareHolder(itemView: View, val onClick: (PlantCareNote) -> Unit) :
         RecyclerView.ViewHolder(itemView) {
         private val noteTitle: TextView = itemView.findViewById(R.id.pc_title)
+        private val noteDate: TextView = itemView.findViewById(R.id.note_date)
+        private val noteContent: TextView = itemView.findViewById(R.id.note)
+        
         private var currentNote: PlantCareNote? = null
 
         init {
@@ -29,7 +34,13 @@ class PlantCareAdapter(private val onClick: (PlantCareNote) -> Unit) :
         fun bind(plantCareNote: PlantCareNote) {
             currentNote = plantCareNote
 
-            noteTitle.text = plantCareNote.title
+            val title = plantCareNote.title
+            val id = plantCareNote.id
+            val sdf = SimpleDateFormat("dd/MM/yyyy")
+
+            noteTitle.text = "$title #$id"
+            noteContent.text = plantCareNote.content
+            noteDate.text = sdf.format(plantCareNote.date)
         }
     }
 
