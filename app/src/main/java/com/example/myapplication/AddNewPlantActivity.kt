@@ -151,7 +151,8 @@ class AddNewPlantActivity : AppCompatActivity() {
             val newRow = plantDb.plantDao().insert(newPlant)
             Log.i("id", "new plant : $newRow")
 
-            val toast = Toast.makeText(this@AddNewPlantActivity, "Added new plant with ID $newRow", Toast.LENGTH_SHORT)
+//            val toast = Toast.makeText(this@AddNewPlantActivity, "Added new plant with ID $newRow", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(this@AddNewPlantActivity, "Your new plant is on board!", Toast.LENGTH_SHORT)
             toast.show()
         }
 
