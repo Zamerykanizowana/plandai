@@ -19,7 +19,7 @@ class PlantCareActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.plant_care)
 
-        val plantCareAdapter = PlantCareAdapter { plantCareNote -> adapterOnClick(plantCareNote) }
+        val plantCareAdapter = PlantCareAdapter(this.resources) { plantCareNote -> adapterOnClick(plantCareNote) }
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
 
         recyclerView.adapter = plantCareAdapter
