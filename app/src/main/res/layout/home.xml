@@ -118,6 +118,7 @@
         android:layout_height="wrap_content"
         android:text="My plants"
         android:textSize="25dp"
+        android:onClick="navigateToMyPlants"
         android:fontFamily="@font/quicksand"
         android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"

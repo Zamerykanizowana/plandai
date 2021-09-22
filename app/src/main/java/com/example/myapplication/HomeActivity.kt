@@ -21,4 +21,8 @@ class HomeActivity : AppCompatActivity() {
     fun navigateToPlantCare(view: View) {
         startActivity(Intent(this, PlantCareActivity::class.java))
     }
+
+    fun navigateToMyPlants(view: View) {
+        startActivity(Intent(this, PlantActivity::class.java))
+    }
 }
