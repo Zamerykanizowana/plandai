@@ -27,7 +27,6 @@ class PlantCareAdapter(private val resources: Resources, private val onClick: (P
             "ic_cactus2",
             "ic_plantnote",
             "ic_plantnote2",
-            "ic_plantnote3",
             "ic_soilwateringcan"
         )
 
