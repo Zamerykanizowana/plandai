@@ -5,63 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/my_button_bg"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:paddingEnd="8dp">
 
     <TextView
-        android:id="@+id/pc_title"
+        android:id="@+id/plant_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/quicksand"
-        android:text="Note's title #id"
+        android:text="Plant name #id"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView14"
         app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05" />
 
     <TextView
-        android:id="@+id/note_date"
+        android:id="@+id/purchase_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/quicksand"
         android:text="dd/mm/yyyy"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintVertical_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView14"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/plant_name"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/note"
+        android:id="@+id/family"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:fontFamily="@font/quicksand"
-        android:text="Very long text to see if I have any grey matter remaining after doing this ridiculous shit\nLet's see what happens\non new line"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/pc_title"
-        app:layout_constraintVertical_bias="0.05"
-        android:layout_margin="8dp" />
+        android:text="family of the plant. Very long text to chack how it works when is too long to fit in box. Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum "
+        app:layout_constraintEnd_toStartOf="@+id/imageView14"
+        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plant_name" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="61dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="5dp"
+        android:id="@+id/imageView14"
+        android:layout_width="53dp"
+        android:layout_height="101dp"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.823"
-        app:srcCompat="@drawable/ic_soilwateringcan" />
-    
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_sizebaby" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
