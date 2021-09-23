@@ -135,6 +135,7 @@
         android:fontFamily="@font/quicksand"
         android:text="Add new care note"
         android:textSize="25dp"
+        android:onClick="addNewPlantCareNote"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"

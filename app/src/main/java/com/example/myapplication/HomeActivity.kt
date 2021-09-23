@@ -28,4 +28,9 @@ class HomeActivity : AppCompatActivity() {
         Log.i(this.localClassName, "In navigateToMyPlants function")
         startActivity(Intent(this, PlantActivity::class.java))
     }
+
+    fun addNewPlantCareNote(view: View) {
+        Log.i(this.localClassName, "In addNewPlantCareNote function")
+        startActivity(Intent(this, AddNewPlantCareActivity::class.java))
+    }
 }
