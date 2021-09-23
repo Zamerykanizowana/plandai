@@ -28,15 +28,15 @@ class PlantCareActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
 
-            for (i in 1..5) {
-                val testNote = PlantCareNote(
-                    0,
-                    "Cool note",
-                    SimpleDateFormat("dd/MM/yyyy").parse("11/07/1999"),
-                    "Some random content"
-                )
-                plantDb.plantCareNoteDao().insert(testNote)
-            }
+//            for (i in 1..5) {
+//                val testNote = PlantCareNote(
+//                    0,
+//                    "Cool note",
+//                    SimpleDateFormat("dd/MM/yyyy").parse("11/07/1999"),
+//                    "Some random content"
+//                )
+//                plantDb.plantCareNoteDao().insert(testNote)
+//            }
             plantCareAdapter.submitList(plantDb.plantCareNoteDao().getNotes())
         }
     }
