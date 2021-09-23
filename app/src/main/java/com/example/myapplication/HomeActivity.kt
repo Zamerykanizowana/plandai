@@ -15,14 +15,17 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun addNewPlant(view: View) {
+        Log.i(this.localClassName, "In addNewPlant function")
         startActivity(Intent(this, AddNewPlantActivity::class.java))
     }
 
     fun navigateToPlantCare(view: View) {
+        Log.i(this.localClassName, "In navigateToPlantCare function")
         startActivity(Intent(this, PlantCareActivity::class.java))
     }
 
     fun navigateToMyPlants(view: View) {
+        Log.i(this.localClassName, "In navigateToMyPlants function")
         startActivity(Intent(this, PlantActivity::class.java))
     }
 }

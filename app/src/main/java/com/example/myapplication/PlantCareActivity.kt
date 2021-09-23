@@ -45,4 +45,8 @@ class PlantCareActivity : AppCompatActivity() {
         val logItem = plantCareNote.id
         Log.i(this.localClassName, "$logItem")
     }
+
+    fun goHome(view: View) {
+        startActivity(Intent(this, HomeActivity::class.java))
+    }
 }

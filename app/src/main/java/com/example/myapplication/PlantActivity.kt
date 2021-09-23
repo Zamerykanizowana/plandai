@@ -1,7 +1,9 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
@@ -22,16 +24,16 @@ class PlantActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
 
-            for (i in 1..5) {
-                val testPlant = Plant(
-                    0,
-                    "Hoya",
-                    "Same random family",
-                    SimpleDateFormat("dd/MM/yyyy").parse("28/08/1997"),
-                    "Baby"
-                )
-                plantDb.plantDao().insert(testPlant)
-            }
+//            for (i in 1..5) {
+//                val testPlant = Plant(
+//                    0,
+//                    "Hoya",
+//                    "Same random family",
+//                    SimpleDateFormat("dd/MM/yyyy").parse("28/08/1997"),
+//                    "Baby"
+//                )
+//                plantDb.plantDao().insert(testPlant)
+//            }
             plantAdapter.submitList(plantDb.plantDao().getPlants())
         }
     }
@@ -39,5 +41,9 @@ class PlantActivity : AppCompatActivity() {
     private fun adapterOnClick(plant: Plant) {
         val logItem = plant.id
         Log.i(this.localClassName, "$logItem")
+    }
+
+    fun goHome(view: View) {
+        startActivity(Intent(this, HomeActivity::class.java))
     }
 }
