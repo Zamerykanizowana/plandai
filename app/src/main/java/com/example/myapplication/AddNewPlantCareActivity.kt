@@ -60,21 +60,32 @@ class AddNewPlantCareActivity  : AppCompatActivity() {
     fun addNewPlantCareNote(view: View) {
         val noteTitle = findViewById<EditText>(R.id.noteTitle).text.toString()
         val description = findViewById<EditText>(R.id.description).text.toString()
+//        TODO tu sie wykrzacza, nie moze przeparsowac pusta date!
         val dateOfCare = SimpleDateFormat("dd/MM/yyyy").parse(findViewById<EditText>(R.id.dateOfCare).text.toString())
-        Log.i("anpcn", "addNewPlantCareNote check : $noteTitle")
-        val newCareNote = PlantCareNote(0, noteTitle, dateOfCare, description)
-        val plantDb = PlantRoomDatabase.getDatabase(this)
+        Log.i("test", "value in new note : $noteTitle")
+        Log.i("test", "value in new note : $description")
+        Log.i("test", "value in new note : $dateOfCare")
+        if (!noteTitle.isNullOrEmpty() && !description.isNullOrEmpty()) {
+            Log.i("anpcn", "addNewPlantCareNote check : $noteTitle")
+            val newCareNote = PlantCareNote(0, noteTitle, dateOfCare, description)
+            val plantDb = PlantRoomDatabase.getDatabase(this)
 
-        GlobalScope.launch(Dispatchers.Main) {
-            val newRow = plantDb.plantCareNoteDao().insert(newCareNote)
-            Log.i("id", "new plant care note : $newRow")
+            GlobalScope.launch(Dispatchers.Main) {
+                val newRow = plantDb.plantCareNoteDao().insert(newCareNote)
+                Log.i("id", "new plant care note : $newRow")
 
 //            val toast = Toast.makeText(this@AddNewPlantActivity, "Added new plant with ID $newRow", Toast.LENGTH_SHORT)
-            val toast = Toast.makeText(this@AddNewPlantCareActivity, "Your new plant care note is added!", Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(this@AddNewPlantCareActivity, "Your new plant care note is added!", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+
+            goHome(view)
+        } else {
+            Log.i("warning", "empty values in form")
+            val toast = Toast.makeText(this@AddNewPlantCareActivity, "Invalid value(s)!", Toast.LENGTH_SHORT)
             toast.show()
         }
 
-        goHome(view)
     }
 
     fun goHome(view: View) {
