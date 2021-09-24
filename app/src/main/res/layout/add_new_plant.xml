@@ -139,5 +139,190 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner1"
         app:layout_constraintVertical_bias="0.133" />
 
+    <ImageView
+        android:id="@+id/shelf2"
+        android:layout_width="133dp"
+        android:layout_height="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/shelf" />
+
+    <ImageView
+        android:id="@+id/sizeBabyImage"
+        android:layout_width="21dp"
+        android:layout_height="35dp"
+        android:contentDescription="Baby plant"
+        app:layout_constraintBottom_toTopOf="@+id/shelf2"
+        app:layout_constraintEnd_toEndOf="@+id/SizeMImage"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/SizeMImage"
+        app:layout_constraintTop_toTopOf="@+id/SizeMImage"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_sizebaby"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/sizeSImage"
+        android:layout_width="41dp"
+        android:layout_height="54dp"
+        android:contentDescription="Small plant"
+        app:layout_constraintBottom_toTopOf="@+id/shelf2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/sizeBabyImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_sizes" />
+
+    <ImageView
+        android:id="@+id/SizeMImage"
+        android:layout_width="81dp"
+        android:layout_height="92dp"
+        android:contentDescription="Medium plant"
+        app:layout_constraintBottom_toTopOf="@+id/shelf2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_sizem" />
+
+    <ImageView
+        android:id="@+id/sizeLImage"
+        android:layout_width="91dp"
+        android:layout_height="132dp"
+        android:contentDescription="Large plant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_sizel" />
+
+    <ImageView
+        android:id="@+id/sizeXLImage"
+        android:layout_width="143dp"
+        android:layout_height="200dp"
+        android:contentDescription="Extra large plant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_sizexl" />
+
+    <ImageView
+        android:id="@+id/sizeMonsterImage"
+        android:layout_width="203dp"
+        android:layout_height="304dp"
+        android:contentDescription="Really big plant (monster)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_sizemonster" />
+
+    <TextView
+        android:id="@+id/sizeMonsterTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand"
+        android:text="Monster"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.574"
+        app:layout_constraintStart_toStartOf="@+id/sizeMonsterImage"
+        app:layout_constraintTop_toTopOf="@+id/sizeMonsterImage"
+        app:layout_constraintVertical_bias="0.827" />
+
+    <TextView
+        android:id="@+id/sizeLTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand"
+        android:text="Large"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sizeLImage"
+        app:layout_constraintEnd_toEndOf="@+id/sizeLImage"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/sizeLImage"
+        app:layout_constraintTop_toTopOf="@+id/sizeLImage"
+        app:layout_constraintVertical_bias="0.95" />
+
+    <TextView
+        android:id="@+id/sizeXLTag"
+        android:layout_width="52dp"
+        android:layout_height="19dp"
+        android:gravity="center"
+        android:fontFamily="@font/quicksand"
+        android:text="Extra large"
+        android:textColor="@color/white"
+        android:textSize="9dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sizeXLImage"
+        app:layout_constraintEnd_toEndOf="@+id/sizeXLImage"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/sizeXLImage"
+        app:layout_constraintTop_toTopOf="@+id/sizeXLImage"
+        app:layout_constraintVertical_bias="0.784" />
+
+    <TextView
+        android:id="@+id/sizeMTag"
+        android:layout_width="32dp"
+        android:layout_height="14dp"
+        android:fontFamily="@font/quicksand"
+        android:gravity="center"
+        android:text="Medium"
+        android:textColor="@color/black"
+        android:textSize="7dp"
+        app:layout_constraintBottom_toBottomOf="@+id/SizeMImage"
+        app:layout_constraintEnd_toEndOf="@+id/SizeMImage"
+        app:layout_constraintHorizontal_bias="0.180"
+        app:layout_constraintStart_toStartOf="@+id/SizeMImage"
+        app:layout_constraintTop_toTopOf="@+id/SizeMImage"
+        app:layout_constraintVertical_bias="0.97" />
+
+    <TextView
+        android:id="@+id/sizeSTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand"
+        android:gravity="center"
+        android:text="Small"
+        android:textColor="@color/black"
+        android:textSize="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sizeSImage"
+        app:layout_constraintEnd_toEndOf="@+id/sizeSImage"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="@+id/sizeSImage"
+        app:layout_constraintTop_toTopOf="@+id/sizeSImage"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <TextView
+        android:id="@+id/sizeBabyTage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand"
+        android:gravity="center"
+        android:text="Baby"
+        android:textColor="@color/black"
+        android:textSize="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sizeBabyImage"
+        app:layout_constraintEnd_toEndOf="@+id/sizeBabyImage"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="@+id/sizeBabyImage"
+        app:layout_constraintTop_toTopOf="@+id/sizeBabyImage"
+        app:layout_constraintVertical_bias="0.65"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
