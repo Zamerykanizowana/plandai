@@ -19,6 +19,11 @@ class PlantAdapter(private val resources: Resources, private val onClick: (Plant
         private val plantName: TextView = itemView.findViewById(R.id.plant_name)
         private val purchaseDate: TextView = itemView.findViewById(R.id.purchase_date)
         private val plantContent: TextView = itemView.findViewById(R.id.family)
+        private val plantSizeImg: ImageView = itemView.findViewById(R.id.plant_size)
+
+        // Expose useful variables normally available only in Activity-derived classes.
+        private val packageName = BuildConfig.APPLICATION_ID
+        private val resources = resources
 
         private var currentPlant: Plant? = null
 
@@ -39,9 +44,16 @@ class PlantAdapter(private val resources: Resources, private val onClick: (Plant
             val id = plant.id
             val sdf = SimpleDateFormat("dd/MM/yyyy")
 
+            val image = this.resources.getIdentifier(
+                "ic_size${plant.size?.lowercase()}",
+                "drawable",
+                this.packageName
+            )
+
             plantName.text = "$name #$id"
             plantContent.text = plant.family
             purchaseDate.text = sdf.format(plant.dop)
+            plantSizeImg.setImageResource(image)
         }
     }
 
