@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 
-class PlantAdapter(private val onClick: (Plant) -> Unit) :
+class PlantAdapter(private val resources: Resources, private val onClick: (Plant) -> Unit) :
     ListAdapter<Plant, PlantAdapter.PlantHolder>(PlantDiffCallback) {
-    class PlantHolder(itemView: View, val onClick: (Plant) -> Unit) :
+    class PlantHolder(itemView: View, resources: Resources, val onClick: (Plant) -> Unit) :
         RecyclerView.ViewHolder(itemView) {
         private val plantName: TextView = itemView.findViewById(R.id.plant_name)
         private val purchaseDate: TextView = itemView.findViewById(R.id.purchase_date)
@@ -47,7 +48,7 @@ class PlantAdapter(private val onClick: (Plant) -> Unit) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlantHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.plant_item, parent, false)
-        return PlantHolder(view, onClick)
+        return PlantHolder(view, resources, onClick)
     }
 
     override fun onBindViewHolder(holder: PlantHolder, position: Int) {
