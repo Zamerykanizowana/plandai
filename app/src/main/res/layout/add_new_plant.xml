@@ -153,48 +153,48 @@
 
     <ImageView
         android:id="@+id/sizeBabyImage"
-        android:layout_width="21dp"
-        android:layout_height="35dp"
+        android:layout_width="38dp"
+        android:layout_height="61dp"
         android:contentDescription="Baby plant"
         app:layout_constraintBottom_toTopOf="@+id/shelf2"
         app:layout_constraintEnd_toEndOf="@+id/SizeMImage"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="@+id/SizeMImage"
         app:layout_constraintTop_toTopOf="@+id/SizeMImage"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_sizebaby"
+        app:srcCompat="@drawable/ic_sizebabyresize"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/sizeSImage"
-        android:layout_width="41dp"
-        android:layout_height="54dp"
+        android:layout_width="86dp"
+        android:layout_height="105dp"
         android:contentDescription="Small plant"
         app:layout_constraintBottom_toTopOf="@+id/shelf2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/sizeBabyImage"
+        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintStart_toStartOf="@+id/SizeMImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_sizes" />
+        app:srcCompat="@drawable/ic_sizesresize" />
 
     <ImageView
         android:id="@+id/SizeMImage"
-        android:layout_width="81dp"
-        android:layout_height="92dp"
+        android:layout_width="119dp"
+        android:layout_height="132dp"
         android:contentDescription="Medium plant"
         app:layout_constraintBottom_toTopOf="@+id/shelf2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_sizem" />
+        app:srcCompat="@drawable/ic_sizemresize" />
 
     <ImageView
         android:id="@+id/sizeLImage"
-        android:layout_width="91dp"
-        android:layout_height="132dp"
+        android:layout_width="176dp"
+        android:layout_height="255dp"
         android:contentDescription="Large plant"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -205,8 +205,8 @@
 
     <ImageView
         android:id="@+id/sizeXLImage"
-        android:layout_width="143dp"
-        android:layout_height="200dp"
+        android:layout_width="141dp"
+        android:layout_height="230dp"
         android:contentDescription="Extra large plant"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -236,13 +236,13 @@
         android:fontFamily="@font/quicksand"
         android:text="Monster"
         android:textColor="@color/white"
-        android:textSize="12dp"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.574"
+        app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toStartOf="@+id/sizeMonsterImage"
         app:layout_constraintTop_toTopOf="@+id/sizeMonsterImage"
-        app:layout_constraintVertical_bias="0.827" />
+        app:layout_constraintVertical_bias="0.84" />
 
     <TextView
         android:id="@+id/sizeLTag"
@@ -251,13 +251,13 @@
         android:fontFamily="@font/quicksand"
         android:text="Large"
         android:textColor="@color/white"
-        android:textSize="10dp"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="@+id/sizeLImage"
         app:layout_constraintEnd_toEndOf="@+id/sizeLImage"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/sizeLImage"
         app:layout_constraintTop_toTopOf="@+id/sizeLImage"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintVertical_bias="0.97" />
 
     <TextView
         android:id="@+id/sizeXLTag"
@@ -277,19 +277,19 @@
 
     <TextView
         android:id="@+id/sizeMTag"
-        android:layout_width="32dp"
-        android:layout_height="14dp"
+        android:layout_width="46dp"
+        android:layout_height="15dp"
         android:fontFamily="@font/quicksand"
         android:gravity="center"
         android:text="Medium"
         android:textColor="@color/black"
-        android:textSize="7dp"
+        android:textSize="11dp"
         app:layout_constraintBottom_toBottomOf="@+id/SizeMImage"
         app:layout_constraintEnd_toEndOf="@+id/SizeMImage"
-        app:layout_constraintHorizontal_bias="0.180"
+        app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintStart_toStartOf="@+id/SizeMImage"
         app:layout_constraintTop_toTopOf="@+id/SizeMImage"
-        app:layout_constraintVertical_bias="0.97" />
+        app:layout_constraintVertical_bias="0.957" />
 
     <TextView
         android:id="@+id/sizeSTag"
@@ -299,7 +299,7 @@
         android:gravity="center"
         android:text="Small"
         android:textColor="@color/black"
-        android:textSize="6dp"
+        android:textSize="11dp"
         app:layout_constraintBottom_toBottomOf="@+id/sizeSImage"
         app:layout_constraintEnd_toEndOf="@+id/sizeSImage"
         app:layout_constraintHorizontal_bias="0.55"
@@ -315,13 +315,13 @@
         android:gravity="center"
         android:text="Baby"
         android:textColor="@color/black"
-        android:textSize="5dp"
+        android:textSize="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/sizeBabyImage"
         app:layout_constraintEnd_toEndOf="@+id/sizeBabyImage"
-        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintHorizontal_bias="0.64"
         app:layout_constraintStart_toStartOf="@+id/sizeBabyImage"
         app:layout_constraintTop_toTopOf="@+id/sizeBabyImage"
-        app:layout_constraintVertical_bias="0.65"
+        app:layout_constraintVertical_bias="0.7"
         />
 
 

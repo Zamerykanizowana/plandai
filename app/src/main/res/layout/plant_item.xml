@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/my_button_bg"
     android:layout_marginBottom="10dp"
-    android:paddingEnd="8dp">
+    android:paddingEnd="0dp">
 
     <TextView
         android:id="@+id/plant_name"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:fontFamily="@font/quicksand"
-        android:text="family of the plant. Very long text to chack how it works when is too long to fit in box. Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum "
+        android:text="family of the plant. Very long text to chack how it works when is too long to fit in box. Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum "
         app:layout_constraintEnd_toStartOf="@+id/plant_size"
         app:layout_constraintHorizontal_bias="0.034"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,12 +51,12 @@
 
     <ImageView
         android:id="@+id/plant_size"
-        android:layout_width="53dp"
-        android:layout_height="101dp"
-        android:layout_margin="8dp"
+        android:layout_width="102dp"
+        android:layout_height="143dp"
+        android:layout_margin="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
