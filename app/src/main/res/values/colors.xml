@@ -10,4 +10,5 @@
     <color name="bgc_green">#708D40</color>
     <color name="button_green">#405910</color>
     <color name="dark_green">#203700</color>
+    <color name="warning_red">#F0613A</color>
 </resources>

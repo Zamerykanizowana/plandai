@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
@@ -12,6 +13,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -58,16 +60,16 @@ class AddNewPlantCareActivity  : AppCompatActivity() {
     }
 
     fun addNewPlantCareNote(view: View) {
-        val noteTitle = findViewById<EditText>(R.id.noteTitle).text.toString()
-        val description = findViewById<EditText>(R.id.description).text.toString()
-//        TODO tu sie wykrzacza, nie moze przeparsowac pusta date!
-        val dateOfCare = SimpleDateFormat("dd/MM/yyyy").parse(findViewById<EditText>(R.id.dateOfCare).text.toString())
-        Log.i("test", "value in new note : $noteTitle")
-        Log.i("test", "value in new note : $description")
-        Log.i("test", "value in new note : $dateOfCare")
-        if (!noteTitle.isNullOrEmpty() && !description.isNullOrEmpty()) {
+        val noteTitle = findViewById<EditText>(R.id.noteTitle)
+        val description = findViewById<EditText>(R.id.description)
+        val dateOfCare = findViewById<EditText>(R.id.dateOfCare)
+
+//        val    dateOfCare = SimpleDateFormat("dd/MM/yyyy").parse(findViewById<EditText>(R.id.dateOfCare).text.toString())
+
+        if (!noteTitle.text.toString().isNullOrEmpty() && !description.text.toString().isNullOrEmpty() && !dateOfCare.text.toString().isNullOrEmpty()) {
             Log.i("anpcn", "addNewPlantCareNote check : $noteTitle")
-            val newCareNote = PlantCareNote(0, noteTitle, dateOfCare, description)
+            val parsedDateCare = SimpleDateFormat("dd/MM/yyyy").parse(dateOfCare.text.toString())
+            val newCareNote = PlantCareNote(0, noteTitle.text.toString(), parsedDateCare, description.text.toString())
             val plantDb = PlantRoomDatabase.getDatabase(this)
 
             GlobalScope.launch(Dispatchers.Main) {
@@ -82,10 +84,31 @@ class AddNewPlantCareActivity  : AppCompatActivity() {
             goHome(view)
         } else {
             Log.i("warning", "empty values in form")
+            if (noteTitle.text.toString().isNullOrEmpty()) {
+//                android:backgroundTint="@color/warning_red"
+                noteTitle.getBackground().setColorFilter(resources.getColor(R.color.warning_red), PorterDuff.Mode.SRC_ATOP);
+            }
+            if (description.text.toString().isNullOrEmpty()) {
+                Log.i("warning", "in if statement")
+                description.setTextColor(ContextCompat.getColor(this, R.color.warning_red))
+            }
+            if (dateOfCare.text.toString().isNullOrEmpty()) {
+                dateOfCare.setTextColor(ContextCompat.getColor(this, R.color.warning_red))
+            }
             val toast = Toast.makeText(this@AddNewPlantCareActivity, "Invalid value(s)!", Toast.LENGTH_SHORT)
             toast.show()
+            noteTitle.setOnClickListener(object : View.OnClickListener {
+                override fun onClick(view: View) {
+                    noteTitle.getBackground().setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_ATOP);
+                }
+            })
+            noteTitle.setOnFocusChangeListener { view: View, b -> setBackgroudTint(noteTitle) }
         }
 
+    }
+
+    private fun setBackgroudTint(editText: EditText) {
+        editText.getBackground().setColorFilter(resources.getColor(R.color.purple_700), PorterDuff.Mode.SRC_ATOP);
     }
 
     fun goHome(view: View) {
