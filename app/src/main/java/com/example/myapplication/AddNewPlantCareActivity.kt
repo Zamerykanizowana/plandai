@@ -42,6 +42,7 @@ class AddNewPlantCareActivity  : AppCompatActivity() {
                 val myFormat = "dd/MM/yyyy" // mention the format you need
                 val sdf = SimpleDateFormat(myFormat, Locale.US)
                 dateField.setText(sdf.format(cal.getTime()))
+                validationCheck(dateField)
             }
         }
         dateField.setOnClickListener(object : View.OnClickListener {
@@ -55,7 +56,6 @@ class AddNewPlantCareActivity  : AppCompatActivity() {
                     cal.get(Calendar.DAY_OF_MONTH)
                 ).show()
             }
-
         })
     }
 
@@ -64,7 +64,9 @@ class AddNewPlantCareActivity  : AppCompatActivity() {
         val description = findViewById<EditText>(R.id.description)
         val dateOfCare = findViewById<EditText>(R.id.dateOfCare)
 
-//        val    dateOfCare = SimpleDateFormat("dd/MM/yyyy").parse(findViewById<EditText>(R.id.dateOfCare).text.toString())
+        validationCheck(noteTitle)
+        validationCheck(description)
+        validationCheck(dateOfCare)
 
         if (!noteTitle.text.toString().isNullOrEmpty() && !description.text.toString().isNullOrEmpty() && !dateOfCare.text.toString().isNullOrEmpty()) {
             Log.i("anpcn", "addNewPlantCareNote check : $noteTitle")
@@ -75,40 +77,63 @@ class AddNewPlantCareActivity  : AppCompatActivity() {
             GlobalScope.launch(Dispatchers.Main) {
                 val newRow = plantDb.plantCareNoteDao().insert(newCareNote)
                 Log.i("id", "new plant care note : $newRow")
-
 //            val toast = Toast.makeText(this@AddNewPlantActivity, "Added new plant with ID $newRow", Toast.LENGTH_SHORT)
                 val toast = Toast.makeText(this@AddNewPlantCareActivity, "Your new plant care note is added!", Toast.LENGTH_SHORT)
                 toast.show()
             }
-
             goHome(view)
+
         } else {
             Log.i("warning", "empty values in form")
-            if (noteTitle.text.toString().isNullOrEmpty()) {
-//                android:backgroundTint="@color/warning_red"
-                noteTitle.getBackground().setColorFilter(resources.getColor(R.color.warning_red), PorterDuff.Mode.SRC_ATOP);
-            }
-            if (description.text.toString().isNullOrEmpty()) {
-                Log.i("warning", "in if statement")
-                description.setTextColor(ContextCompat.getColor(this, R.color.warning_red))
-            }
-            if (dateOfCare.text.toString().isNullOrEmpty()) {
-                dateOfCare.setTextColor(ContextCompat.getColor(this, R.color.warning_red))
-            }
+//            validationCheck(noteTitle)
+//            validationCheck(description)
+//            validationCheck(dateOfCare)
             val toast = Toast.makeText(this@AddNewPlantCareActivity, "Invalid value(s)!", Toast.LENGTH_SHORT)
             toast.show()
-            noteTitle.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(view: View) {
-                    noteTitle.getBackground().setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_ATOP);
-                }
-            })
-            noteTitle.setOnFocusChangeListener { view: View, b -> setBackgroudTint(noteTitle) }
-        }
 
+            noteTitle.onFocusChangeListener = View.OnFocusChangeListener { view, focus ->
+                if(noteTitle.text.toString().isNullOrEmpty() && !focus) {
+                    setWarningBackgroudTind(noteTitle)
+                } else {
+                    setNormalBackgroudTind(noteTitle)
+                }
+            }
+
+            dateOfCare.onFocusChangeListener = View.OnFocusChangeListener { view, focus ->
+                if(dateOfCare.text.toString().isNullOrEmpty()) {
+                    setWarningBackgroudTind(dateOfCare)
+                } else {
+                    setNormalBackgroudTind(dateOfCare)
+                }
+            }
+
+            description.onFocusChangeListener = View.OnFocusChangeListener { view, focus ->
+                if(description.text.toString().isNullOrEmpty() && !focus) {
+
+                    setWarningBackgroudTind(description)
+                } else {
+                    setNormalBackgroudTind(description)
+                }
+            }
+        }
     }
 
-    private fun setBackgroudTint(editText: EditText) {
-        editText.getBackground().setColorFilter(resources.getColor(R.color.purple_700), PorterDuff.Mode.SRC_ATOP);
+    private fun validationCheck(editText: EditText) {
+        if (editText.text.toString().isNullOrEmpty()) {
+            Log.i("warning", "empty editText : $editText")
+            setWarningBackgroudTind(editText)
+        } else {
+
+            setNormalBackgroudTind(editText)
+        }
+    }
+
+    private fun setWarningBackgroudTind(editText: EditText) {
+        editText.getBackground().setColorFilter(resources.getColor(R.color.warning_red), PorterDuff.Mode.SRC_ATOP);
+    }
+
+    private fun setNormalBackgroudTind(editText: EditText) {
+        editText.getBackground().setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_ATOP)
     }
 
     fun goHome(view: View) {
