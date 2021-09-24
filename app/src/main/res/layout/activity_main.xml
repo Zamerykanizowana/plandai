@@ -38,15 +38,15 @@
 
     <ImageView
         android:id="@+id/imageView16"
-        android:layout_width="211dp"
-        android:layout_height="314dp"
+        android:layout_width="174dp"
+        android:layout_height="410dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.98"
-        app:srcCompat="@drawable/plant4" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_strelitzia" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

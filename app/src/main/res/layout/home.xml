@@ -76,7 +76,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/pilea" />
+        app:srcCompat="@drawable/ic_pilea" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -87,8 +87,8 @@
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.98"
-        app:srcCompat="@drawable/plant4" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_monsterafigma" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -99,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.897"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/plant2" />
+        app:srcCompat="@drawable/ic_polypodiopsida" />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -110,7 +110,7 @@
         app:layout_constraintHorizontal_bias="0.165"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:srcCompat="@drawable/plant3" />
+        app:srcCompat="@drawable/ic_plant3" />
 
     <TextView
         android:id="@+id/textView"
