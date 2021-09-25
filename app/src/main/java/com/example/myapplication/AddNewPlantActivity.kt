@@ -12,9 +12,11 @@ import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -23,17 +25,33 @@ import java.util.*
 class AddNewPlantActivity : AppCompatActivity() {
 
     var cal = Calendar.getInstance()
+    var incomingId: Int? = null
+    var plantDb: PlantRoomDatabase? = null
+    val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.US)
+    val spinnerList = mutableListOf(
+        "Baby",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "Monster"
+    )
 
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_new_plant)
+
+        incomingId = intent.extras?.getInt(Intent.EXTRA_INDEX)
+        plantDb = PlantRoomDatabase.getDatabase(this)
+
         val context = this
         val dateField = findViewById<EditText>(R.id.editTextDate)
         dateField.setHint("Set date of purchase or planting --/--/--")
 
         var onOpenSpinner = false
+
         // create an OnDateSetListener
         val dateSetListener = object : DatePickerDialog.OnDateSetListener {
             override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
@@ -41,8 +59,7 @@ class AddNewPlantActivity : AppCompatActivity() {
                 cal.set(Calendar.YEAR, year)
                 cal.set(Calendar.MONTH, monthOfYear)
                 cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                val myFormat = "dd/MM/yyyy" // mention the format you need
-                val sdf = SimpleDateFormat(myFormat, Locale.US)
+
                 dateField.setText(sdf.format(cal.getTime()))
                 setBagroundTintEditText(dateField, validationCheckEditText(dateField))
             }
@@ -60,16 +77,6 @@ class AddNewPlantActivity : AppCompatActivity() {
 
         })
         val mySpinner = findViewById<Spinner>(R.id.spinner1)
-
-        // list of plant sizes
-        val spinnerList = mutableListOf(
-            "Baby",
-            "S",
-            "M",
-            "L",
-            "XL",
-            "Monster"
-        )
 
         // add a hint to spinner
         // list first item will show as hint
@@ -131,39 +138,75 @@ class AddNewPlantActivity : AppCompatActivity() {
 //                nothing
             }
         }
+
+        handleEdit()
     }
 
+    fun handleEdit() {
+        val name = findViewById<EditText>(R.id.editTextTextPersonName)
+        val family = findViewById<EditText>(R.id.editTextTextPersonName2)
+        val dateOfPurchase = findViewById<EditText>(R.id.editTextDate)
+        val size = findViewById<Spinner>(R.id.spinner1)
+
+        if (incomingId != null) {
+            val plant = plantDb!!.plantDao().getPlantById(incomingId ?: return)
+
+            val shelfText = findViewById<TextView>(R.id.shelf_text)
+            shelfText.setText("Edit plant")
+
+            name.setText(plant.name)
+            family.setText(plant.family)
+            dateOfPurchase.setText(sdf.format(plant.dop))
+            size.setSelection(spinnerList.indexOf(plant.size))
+        }
+    }
 
     fun addNewPlant(view: View) {
         val name = findViewById<EditText>(R.id.editTextTextPersonName)
         val family = findViewById<EditText>(R.id.editTextTextPersonName2)
-//        val dateOfPurchase = SimpleDateFormat("dd/MM/yyyy").parse(findViewById<EditText>(R.id.editTextDate).text.toString())
         val dateOfPurchase = findViewById<EditText>(R.id.editTextDate)
         val size = findViewById<Spinner>(R.id.spinner1)
-
-        val sizeString = size.selectedItem.toString()
-        Log.w("check", "how sizeCheckWorks : $sizeString")
-
+        
         setBagroundTintEditText(name, validationCheckEditText(name))
         setBagroundTintEditText(family, validationCheckEditText(family))
         setBagroundTintEditText(dateOfPurchase, validationCheckEditText(dateOfPurchase))
         setBagroundTintSpinner(size, validationCheckSpinner(size))
 
         if (!validationCheckEditText(name) && !validationCheckEditText(family) && !validationCheckEditText(dateOfPurchase) && !validationCheckSpinner(size)) {
-            Log.i("check", "all editTexts are fulfil")
-            val newPlant = Plant(0, name.text.toString(), family.text.toString(), SimpleDateFormat("dd/MM/yyyy").parse(dateOfPurchase.text.toString()), size.selectedItem.toString())
-            val plantDb = PlantRoomDatabase.getDatabase(this)
-            GlobalScope.launch(Dispatchers.Main) {
-                val newRow = plantDb.plantDao().insert(newPlant)
-                Log.i("id", "new plant : $newRow")
+            lifecycleScope.launch(Dispatchers.Main) {
+                val newPlant = Plant(
+                    incomingId ?: 0,
+                    name.text.toString(),
+                    family.text.toString(),
+                    SimpleDateFormat("dd/MM/yyyy").parse(dateOfPurchase.text.toString()),
+                    size.selectedItem.toString()
+                )
 
-//            val toast = Toast.makeText(this@AddNewPlantActivity, "Added new plant with ID $newRow", Toast.LENGTH_SHORT)
-                val toast = Toast.makeText(this@AddNewPlantActivity, "Your new plant is on board!", Toast.LENGTH_SHORT)
-                toast.show()
+                val toast: Toast?
+                var nextClass: Class<*>?
+
+                if (newPlant.id == 0) {
+                    toast = Toast.makeText(
+                        this@AddNewPlantActivity,
+                        "Your new plant is on board!",
+                        Toast.LENGTH_SHORT
+                    )
+                    nextClass = HomeActivity::class.java
+                    plantDb!!.plantDao().insert(newPlant)
+                } else {
+                    toast = Toast.makeText(
+                        this@AddNewPlantActivity,
+                        "Your plant has been updated!",
+                        Toast.LENGTH_SHORT
+                    )
+                    nextClass = PlantActivity::class.java
+                    plantDb!!.plantDao().update(newPlant)
+                }
+
+                toast!!.show()
+                startActivity(Intent(this@AddNewPlantActivity, nextClass))
             }
-            goHome(view)
         } else {
-            Log.i("check", "empty field in form")
             val toast = Toast.makeText(this@AddNewPlantActivity, "Invalid value(s)!", Toast.LENGTH_SHORT)
             toast.show()
 
@@ -229,7 +272,6 @@ class AddNewPlantActivity : AppCompatActivity() {
             editText.getBackground().setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_ATOP)
         }
     }
-
 
     fun goHome(view: View) {
         startActivity(Intent(this, HomeActivity::class.java))

@@ -39,8 +39,11 @@ class PlantActivity : AppCompatActivity() {
     }
 
     private fun adapterOnClick(plant: Plant) {
-        val logItem = plant.id
-        Log.i(this.localClassName, "$logItem")
+        val editIntent = Intent(this, AddNewPlantActivity::class.java).apply {
+            action = Intent.ACTION_EDIT
+            putExtra(Intent.EXTRA_INDEX, plant.id)
+        }
+        startActivity(editIntent)
     }
 
     fun goHome(view: View) {
