@@ -277,10 +277,17 @@ class AddNewPlantActivity : AppCompatActivity() {
     }
 
     fun removePlant(view: View) {
-
+        lifecycleScope.launch(Dispatchers.Main) {
+            plantDb!!.plantDao().delete(incomingId!!)
+            navigateToPlants(view)
+        }
     }
 
     fun goHome(view: View) {
         startActivity(Intent(this, HomeActivity::class.java))
+    }
+
+    fun navigateToPlants(view: View) {
+        startActivity(Intent(this, PlantActivity::class.java))
     }
 }
