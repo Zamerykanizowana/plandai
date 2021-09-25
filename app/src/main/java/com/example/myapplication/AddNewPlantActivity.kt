@@ -154,6 +154,9 @@ class AddNewPlantActivity : AppCompatActivity() {
             val shelfText = findViewById<TextView>(R.id.shelf_text)
             shelfText.setText("Edit plant")
 
+            val removeBtn = findViewById<ImageView>(R.id.removeBtn)
+            removeBtn.visibility = View.VISIBLE
+
             name.setText(plant.name)
             family.setText(plant.family)
             dateOfPurchase.setText(sdf.format(plant.dop))
@@ -271,6 +274,10 @@ class AddNewPlantActivity : AppCompatActivity() {
         } else {
             editText.getBackground().setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_ATOP)
         }
+    }
+
+    fun removePlant(view: View) {
+
     }
 
     fun goHome(view: View) {
