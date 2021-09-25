@@ -104,6 +104,7 @@
         android:textAlignment="center"
         android:gravity="center"
         android:textSize="20sp"
+        android:fontFamily="@font/quicksand"
         android:theme="@style/SpinnerTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
