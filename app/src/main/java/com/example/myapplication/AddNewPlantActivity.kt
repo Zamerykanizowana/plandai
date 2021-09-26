@@ -61,7 +61,7 @@ class AddNewPlantActivity : AppCompatActivity() {
                 cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
                 dateField.setText(sdf.format(cal.getTime()))
-                setBagroundTintEditText(dateField, validationCheckEditText(dateField))
+                setBackgroundTintEditText(dateField, validationCheckEditText(dateField))
             }
         }
         // when you click on the button, show DatePickerDialog that is set with OnDateSetListener
@@ -126,10 +126,10 @@ class AddNewPlantActivity : AppCompatActivity() {
             ) {
 //                really stupid way to check if this is form's first open
                 if(!onOpenSpinner) {
-                    setBagroundTintSpinner(mySpinner, onOpenSpinner)
+                    setBackgroundTintSpinner(mySpinner, onOpenSpinner)
                     onOpenSpinner = true
                 } else {
-                    setBagroundTintSpinner(mySpinner, validationCheckSpinner(mySpinner))
+                    setBackgroundTintSpinner(mySpinner, validationCheckSpinner(mySpinner))
                 }
 
             }
@@ -170,10 +170,10 @@ class AddNewPlantActivity : AppCompatActivity() {
         val dateOfPurchase = findViewById<EditText>(R.id.editTextDate)
         val size = findViewById<Spinner>(R.id.spinner1)
         
-        setBagroundTintEditText(name, validationCheckEditText(name))
-        setBagroundTintEditText(family, validationCheckEditText(family))
-        setBagroundTintEditText(dateOfPurchase, validationCheckEditText(dateOfPurchase))
-        setBagroundTintSpinner(size, validationCheckSpinner(size))
+        setBackgroundTintEditText(name, validationCheckEditText(name))
+        setBackgroundTintEditText(family, validationCheckEditText(family))
+        setBackgroundTintEditText(dateOfPurchase, validationCheckEditText(dateOfPurchase))
+        setBackgroundTintSpinner(size, validationCheckSpinner(size))
 
         if (!validationCheckEditText(name) && !validationCheckEditText(family) && !validationCheckEditText(dateOfPurchase) && !validationCheckSpinner(size)) {
             lifecycleScope.launch(Dispatchers.Main) {
@@ -215,33 +215,33 @@ class AddNewPlantActivity : AppCompatActivity() {
 
             name.onFocusChangeListener = View.OnFocusChangeListener { view, focus ->
                 if(validationCheckEditText(name) && !focus) {
-                    setBagroundTintEditText(name, true)
+                    setBackgroundTintEditText(name, true)
                 } else {
-                    setBagroundTintEditText(name, false)
+                    setBackgroundTintEditText(name, false)
                 }
             }
 
             family.onFocusChangeListener = View.OnFocusChangeListener { view, focus ->
                 if(validationCheckEditText(family) && !focus) {
-                    setBagroundTintEditText(family, true)
+                    setBackgroundTintEditText(family, true)
                 } else {
-                    setBagroundTintEditText(family, false)
+                    setBackgroundTintEditText(family, false)
                 }
             }
 
             dateOfPurchase.onFocusChangeListener = View.OnFocusChangeListener { view, focus ->
                 if(validationCheckEditText(dateOfPurchase)) {
-                    setBagroundTintEditText(dateOfPurchase, true)
+                    setBackgroundTintEditText(dateOfPurchase, true)
                 } else {
-                    setBagroundTintEditText(dateOfPurchase, false)
+                    setBackgroundTintEditText(dateOfPurchase, false)
                 }
             }
 
             size.onFocusChangeListener = View.OnFocusChangeListener { view, focus ->
                 if(validationCheckSpinner(size) && !focus) {
-                    setBagroundTintSpinner(size, true)
+                    setBackgroundTintSpinner(size, true)
                 } else {
-                    setBagroundTintSpinner(size, false)
+                    setBackgroundTintSpinner(size, false)
                 }
             }
 
@@ -256,7 +256,7 @@ class AddNewPlantActivity : AppCompatActivity() {
         return spinner.selectedItem.toString().compareTo(spinner.adapter.getItem(0).toString()) == 0
     }
 
-    private fun setBagroundTintSpinner(spinner: Spinner, boolean: Boolean) {
+    private fun setBackgroundTintSpinner(spinner: Spinner, boolean: Boolean) {
         if (boolean){
             spinner.getBackground().setColorFilter(resources.getColor(R.color.warning_red), PorterDuff.Mode.SRC_ATOP)
         } else {
@@ -268,7 +268,7 @@ class AddNewPlantActivity : AppCompatActivity() {
         return editText.text.toString().isNullOrEmpty()
     }
 
-    private fun setBagroundTintEditText(editText: EditText, boolean: Boolean) {
+    private fun setBackgroundTintEditText(editText: EditText, boolean: Boolean) {
         if (boolean){
             editText.getBackground().setColorFilter(resources.getColor(R.color.warning_red), PorterDuff.Mode.SRC_ATOP)
         } else {
