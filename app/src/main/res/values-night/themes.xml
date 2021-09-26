@@ -12,5 +12,15 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!--        TODO: add default font - Quicksand, I don't know in whitch file-->
+    </style>
+    <style name="SpinnerTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="colorAccent">@color/grey_30</item>
+        <item name="colorControlNormal">@color/grey_20</item>
+        <item name="android:fontFamily">@font/quicksand</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <!--        <item name="android:textStyle">bold</item>-->
     </style>
 </resources>
